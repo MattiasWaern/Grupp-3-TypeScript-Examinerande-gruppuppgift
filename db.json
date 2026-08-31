@@ -1,1 +1,73 @@
-{}
+{
+  "cars": [
+    {
+      "id": "1",
+      "brand": "Volvo",
+      "model": "XC40",
+      "year": "2024",
+      "pricePerDay": 750,
+      "available": true
+    },
+    {
+      "id": "2",
+      "brand": "BMW",
+      "model": "320",
+      "year": "2024",
+      "pricePerDay": 650,
+      "available": true
+    },
+    {
+      "id": "3",
+      "brand": "Toyota",
+      "model": "Corolla",
+      "year": "2023",
+      "pricePerDay": 700,
+      "available": true
+    },
+    {
+      "id": "4",
+      "brand": "Skoda",
+      "model": "Octavia",
+      "year": "2022",
+      "pricePerDay": 500,
+      "available": true
+    },
+    {
+      "id": "5",
+      "brand": "Audi",
+      "model": "A6",
+      "year": "2024",
+      "pricePerDay": 700,
+      "available": false
+    }
+  ],
+  "bookings": [
+    {
+      "id": "1",
+      "carId": "1",
+      "customerName": "Anna Andersson",
+      "email": "anna@example.com",
+      "startDate": "2026-09-05",
+      "endDate": "2026-09-10",
+      "status": "confirmed"
+    },
+    {
+      "id": "2",
+      "carId": "2",
+      "customerName": "Erik Eriksson",
+      "email": "aerik@example.com",
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-15",
+      "status": "confirmed"
+    },
+    {
+      "id": "3",
+      "carId": "3",
+      "customerName": "Per Persson",
+      "email": "per@example.com",
+      "startDate": "2026-09-01",
+      "endDate": "2026-09-03",
+      "status": "cancelled"
+    }
+  ]
+}
