@@ -1,11 +1,7 @@
+import Home from "./Home";
 
-
-
-function App(){
-  return(
-  <h1>Välkommen till våran fina app :D</h1>
-)
+function App() {
+  return <Home />;
 }
 
-
-export default App
+export default App;
