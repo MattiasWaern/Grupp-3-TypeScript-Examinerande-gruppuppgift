@@ -1,9 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App.tsx'
+import BookingPage from './pages/bokningsSida'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <BookingPage />
   </StrictMode>,
 )
