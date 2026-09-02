@@ -11,7 +11,7 @@ export interface Car {
   transmission: "Automat" | "Manuell"
   fuelType: "Bensin" | "Diesel" 
   airConditioning: boolean;
-  luggageCapacity: number;
+  luggageCapacity: string;
 }
 
 export type BookingStatus = "confirmed" | "cancelled";
