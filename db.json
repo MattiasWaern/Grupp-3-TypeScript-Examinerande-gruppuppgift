@@ -6,7 +6,15 @@
       "model": "XC40",
       "year": "2024",
       "pricePerDay": 750,
-      "available": true
+      "available": true,
+      "image": "public/image/Volvo XC40.png.",
+      "seats" : "5",
+      "transmission" : "Automat",
+      "fuelType" : "Bensin",
+      "airConditioning" : true,
+      "luggageCapacity" : "3 stora resväskor.", 
+      "description" : "En kompakt och bekväm SUV med modern design, gott om utrymme och hög komfort. Passar bra för både stadskörning och längre resor." 
+
     },
     {
       "id": "2",
@@ -14,7 +22,14 @@
       "model": "320",
       "year": "2024",
       "pricePerDay": 650,
-      "available": true
+      "available": true,
+      "image": "public/image/BMW 320.png.",
+      "seats" : "5",
+      "transmission" : "Automat",
+      "fuelType" : "Diesel",
+      "airConditioning" : true,
+      "luggageCapacity" : "2 stora resväskor.", 
+      "description" : "En sportig och bekväm bil med elegant design, bra körkänsla och hög komfort." 
     },
     {
       "id": "3",
@@ -22,7 +37,14 @@
       "model": "Corolla",
       "year": "2023",
       "pricePerDay": 700,
-      "available": true
+      "available": true,
+      "image": "public/image/Toyota Corola.png.",
+      "seats" : "5",
+      "transmission" : "Automat",
+      "fuelType" : "Bensin",
+      "airConditioning" : true,
+      "luggageCapacity" : "2 stora resväskor.", 
+      "description" : "En pålitlig och bränslesnål bil med bekväm körning och smidig storlek." 
     },
     {
       "id": "4",
@@ -30,7 +52,14 @@
       "model": "Octavia",
       "year": "2022",
       "pricePerDay": 500,
-      "available": true
+      "available": true,
+      "image": "public/image/Skoda Octavia.png.",
+      "seats" : "5",
+      "transmission" : "Automat",
+      "fuelType" : "Diesel",
+      "airConditioning" : true,
+      "luggageCapacity" : "3 stora resväskor.", 
+      "description" : "En rymlig och bekväm bil med gott om plats för både passagerare ocg baggage."
     },
     {
       "id": "5",
@@ -38,7 +67,14 @@
       "model": "A6",
       "year": "2024",
       "pricePerDay": 700,
-      "available": false
+      "available": false,
+      "image": "public/image/Audi A6.png.",
+      "seats" : "5",
+      "transmission" : "Automat",
+      "fuelType" : "Bensin",
+      "airConditioning" : true,
+      "luggageCapacity" : "3 stora resväskor.", 
+      "description" : "En elegant och bekväm premiumbil med gott om utrymme och en kraftfull körupplevelse." 
     }
   ],
   "bookings": [
