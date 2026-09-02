@@ -1,0 +1,175 @@
+.booking-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+.back-button {
+  border: none;
+  background: none;
+  padding: 0;
+  margin-bottom: 20px;
+
+  color: #355a82;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.booking-page h1 {
+  margin-bottom: 25px;
+  font-size: 28px;
+}
+
+.booking-content {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.booking-summary {
+  border: 1px solid #d4d9df;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+}
+
+.car-summary {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  padding: 20px;
+
+  border-bottom: 1px solid #d4d9df;
+}
+
+.car-image {
+  width: 140px;
+  height: 90px;
+  object-fit: cover;
+}
+
+.car-info h2 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.car-info p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.booking-details {
+  padding: 20px;
+}
+
+.booking-details div {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 20px;
+}
+
+.booking-details div:last-child {
+  margin-bottom: 0;
+}
+
+.booking-details span {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.booking-details strong {
+  font-size: 16px;
+}
+
+.booking-form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-form-container label {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.booking-form-container input {
+  padding: 14px;
+  border: 1px solid #bfc6cf;
+  border-radius: 6px;
+
+  font-size: 15px;
+}
+
+.booking-form-container input:focus {
+  outline: none;
+  border-color: #1f5fa8;
+}
+
+.email-description {
+  margin-top: 8px;
+  margin-bottom: 25px;
+
+  color: #666;
+  font-size: 14px;
+}
+
+.information-box {
+  padding: 20px;
+
+  border: 1px solid #c7d3e1;
+  border-radius: 6px;
+
+  background: #eef4fa;
+
+  margin-bottom: 25px;
+}
+
+.information-box strong {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.information-box p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.confirm-button {
+  width: 100%;
+  padding: 15px;
+
+  border: none;
+  border-radius: 6px;
+
+  background: #1e76da;
+  color: white;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.confirm-button:hover {
+  background: #10457f;
+}
+
+
+@media (max-width: 700px) {
+  .booking-content {
+    grid-template-columns: 1fr;
+  }
+
+  .car-summary {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .car-image {
+    width: 100%;
+    height: 180px;
+  }
+}
