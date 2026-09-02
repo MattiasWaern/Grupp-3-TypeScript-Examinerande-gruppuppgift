@@ -5,6 +5,13 @@ export interface Car {
   year: number;
   pricePerDay: number;
   available: boolean;
+  description: string;
+  image: string;
+  seats: number;
+  transmission: "Automat" | "Manuell"
+  fuelType: "Bensin" | "Diesel" 
+  airConditioning: boolean;
+  luggageCapacity: number;
 }
 
 export type BookingStatus = "confirmed" | "cancelled";
