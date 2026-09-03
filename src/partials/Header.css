@@ -1,0 +1,45 @@
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: white;
+  border-bottom: 1px solid #d5d5d5;
+  border-top: 1px solid #d5d5d5;
+  height: 20px;
+}
+
+.logoCar {
+  margin: 0;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.logo {
+  margin: 0;
+  font-size: 20px;
+  color: #172c5a;
+}
+
+nav {
+  display: flex;
+  gap: 50px;
+  margin: 0 auto;
+}
+
+nav a {
+  color: #0b0b0b;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #4d68a0;
+}
+
+.envelope {
+  margin: 0;
+  padding: 20px;
+}
+
+
+

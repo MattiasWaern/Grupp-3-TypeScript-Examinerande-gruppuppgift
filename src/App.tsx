@@ -1,10 +1,17 @@
-
+import Header from "./partials/Header";
 
 
 function App(){
-  return(
-  <h1>Välkommen till våran fina app :D</h1>
-)
+  return (
+    <>
+      <Header />
+
+      <main>
+        
+      </main>
+    </>
+  
+  );
 }
 
 
