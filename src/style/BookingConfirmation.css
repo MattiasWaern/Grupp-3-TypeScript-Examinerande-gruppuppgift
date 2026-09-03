@@ -1,0 +1,130 @@
+.confirmation-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 20px;
+ 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+ 
+.confirmation-icon {
+  width: 56px;
+  height: 56px;
+ 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+  border-radius: 50%;
+  background: #22c55e;
+ 
+  margin-bottom: 20px;
+}
+ 
+.confirmation-icon svg {
+  width: 28px;
+  height: 28px;
+  stroke: white;
+}
+ 
+.confirmation-page h1 {
+  margin: 0 0 12px;
+  font-size: 26px;
+}
+ 
+.confirmation-subtitle {
+  margin: 0 0 35px;
+  color: #555;
+  font-size: 15px;
+}
+ 
+.confirmation-subtitle strong {
+  color: #1a1a1a;
+}
+ 
+.confirmation-summary {
+  width: 100%;
+ 
+  display: flex;
+  align-items: center;
+  gap: 25px;
+ 
+  border: 1px solid #d4d9df;
+  border-radius: 8px;
+  padding: 20px;
+ 
+  background: white;
+  text-align: left;
+ 
+  margin-bottom: 30px;
+}
+ 
+.confirmation-car-image {
+  width: 140px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+ 
+.confirmation-details {
+  flex: 1;
+ 
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+ 
+.confirmation-details div {
+  display: flex;
+  flex-direction: column;
+}
+ 
+.confirmation-details span {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 5px;
+}
+ 
+.confirmation-details strong {
+  font-size: 16px;
+}
+ 
+.confirmation-actions {
+  width: 100%;
+ 
+  display: flex;
+  gap: 15px;
+}
+ 
+.confirmation-actions button {
+  flex: 1;
+  padding: 14px;
+ 
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+ 
+.btn-outline {
+  background: white;
+  border: 1px solid #bfc6cf;
+  color: #1a1a1a;
+}
+ 
+.btn-outline:hover {
+  background: #f5f6f8;
+}
+ 
+.btn-filled {
+  border: none;
+  background: #15539b;
+  color: white;
+}
+ 
+.btn-filled:hover {
+  background: #10457f;
+}
