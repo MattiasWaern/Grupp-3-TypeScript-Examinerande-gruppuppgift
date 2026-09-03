@@ -54,11 +54,14 @@ export default function BookingConfirmation({
                         <strong>{totalPrice.toLocaleString("sv-SE")} kr</strong>
                     </div>                                                            
                 </div>
+                <div className="confirmation-actions">
+                    <button className="btn-outline">Till startsidan</button>
 
+                    <button className="btn-filled">Mina bokningar</button>
+                </div>
 
             </div>
 
-            
         </main>
-    )
+    );
 }
