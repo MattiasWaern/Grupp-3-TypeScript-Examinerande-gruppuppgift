@@ -1,0 +1,1 @@
+import type { Booking } from "../types/bookingTypes";
