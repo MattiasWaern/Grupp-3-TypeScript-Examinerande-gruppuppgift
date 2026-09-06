@@ -20,4 +20,9 @@ export default function ContactPage() {
         const { name, value } = event.target;
         setFormData((prev) => ({ ...prev, [name]: value}));
     }
+
+    const handleSubmit = (event: React.FormEvent) => {
+        event.preventDefault();
+        console.log("Kontaktformulär skickat:", formData);
+    }
 }
