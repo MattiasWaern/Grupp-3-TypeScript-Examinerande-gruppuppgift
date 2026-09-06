@@ -13,4 +13,11 @@ export default function ContactPage() {
         email: "",
         message: "",
     })
+
+    const handleChange = (
+        event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => {
+        const { name, value } = event.target;
+        setFormData((prev) => ({ ...prev, [name]: value}));
+    }
 }
