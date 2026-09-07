@@ -15,6 +15,7 @@ export default function BookingConfirmation({
   days = 5,
   totalPrice = 3500,
 }: Partial<BookingConfirmationProps>) {
+  
   return (
     <main className="confirmation-page">
       <div className="confirmation-icon">
