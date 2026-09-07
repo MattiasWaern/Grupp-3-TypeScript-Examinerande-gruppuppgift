@@ -3,6 +3,12 @@ import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 
 export default function Home() {
+  const today = new Date().toISOString().split("T")[0];
+  
+  const futureDate = new Date();
+  futureDate.setDate(futureDate.getDate() + 5);
+  const defaultEnd = futureDate.toISOString().split("T")[0];
+
   return (
     <>
       <Navbar />
@@ -12,11 +18,11 @@ export default function Home() {
           <p>Välj datum och hitta tillgängliga bilar på några sekunder!</p>
 
           <form className="search-form">
-           <label className="search-label">
+            <label className="search-label">
               Startdatum
               <input
                 type="date"
-                defaultValue="2026-09-10"
+                defaultValue={today}
                 className="search-input"
               />
             </label>
@@ -24,7 +30,7 @@ export default function Home() {
               Slutdatum
               <input
                 type="date"
-                defaultValue="2026-09-15"
+                defaultValue={defaultEnd}
                 className="search-input"
               />
             </label>
