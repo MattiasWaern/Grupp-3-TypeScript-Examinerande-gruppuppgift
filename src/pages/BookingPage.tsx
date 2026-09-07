@@ -13,7 +13,10 @@ type BookingPageState = {
 export default function BookingPage() {
   const [email, setEmail] = useState("");
 
-  const { car, startDate, endDate} = location.state as BookingPageState;
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const { car, startDate, endDate } = location.state as BookingPageState;
 
   const calculateDays = () => {
     const start = new Date(startDate);
@@ -51,10 +54,7 @@ export default function BookingPage() {
       totalPrice,
     },
   })
-  }
-
-
-  }
+}
 
   return (
     <main className="booking-page">

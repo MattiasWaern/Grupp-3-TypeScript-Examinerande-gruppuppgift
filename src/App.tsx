@@ -1,9 +1,9 @@
-// import Home from "./pages/Home";
-import BookingPage from './pages/BookingPage'
+import Home from "./pages/Home";
+// import BookingPage from './pages/BookingPage'
 // import BookingConfirmation from './pages/BookingConfirmation.tsx'
 
 function App() {
-  return <BookingPage />;
+  return < Home />;
 }
 
 export default App;
