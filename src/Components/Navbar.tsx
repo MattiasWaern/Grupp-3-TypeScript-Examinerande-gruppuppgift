@@ -9,7 +9,7 @@ export default function Navbar() {
     <nav className="navbar">
 
       <span className="navbar-logo">
-        <FaCar /> Hyrbil
+        <FaCar /> GoRide
       </span>
 
 
