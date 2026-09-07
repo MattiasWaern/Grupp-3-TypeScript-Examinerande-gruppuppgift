@@ -27,6 +27,21 @@ export default function BookingPage() {
   const days = calculateDays();
   const totalPrice = days * car.pricePerDay;
 
+  const formatDate = (date: string) => {
+    return new Date(date).toLocaleDateString("sv-SE",{
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+  };
+
+  const handleBooking = () => {
+    if (!email){
+      alert("Fyll i din e-postadress");
+      return;
+    }
+  }
+
   return (
     <main className="booking-page">
       <button className="back-button">
