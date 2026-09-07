@@ -42,13 +42,28 @@ export default function BookingPage() {
     }
   }
 
+  navigate("/booking-confirmation",{
+    state:{
+      car,
+      email,
+      startDate,
+      endDate,
+      days,
+      totalPrice,
+    },
+  })
+  }
+
   return (
     <main className="booking-page">
-      <button className="back-button">
+      <button 
+      className="back-button"
+      onClick={() => navigate(-1)}
+      >
         Tillbaka till resultat
       </button>
 
-      <h1>Boka Volvo XC40</h1>
+      <h1>Boka {car.brand} {car.model}</h1>
 
       <section className="booking-content">
         <div className="booking-summary">
@@ -60,30 +75,30 @@ export default function BookingPage() {
             />
 
             <div className="car-info">
-              <h2>Volvo XC40</h2>
-              <p>700 kr / dag</p>
+              <h2>{car.brand} {car.model}</h2>
+              <p>{car.pricePerDay} / dag</p>
             </div>
           </div>
 
           <div className="booking-details">
             <div>
               <span>Startdatum</span>
-              <strong>10 september 2026</strong>
+              <strong>{formatDate(startDate)}</strong>
             </div>
 
             <div>
               <span>Slutdatum</span>
-              <strong>15 september 2026</strong>
+              <strong>{formatDate(endDate)}</strong>
             </div>
 
             <div>
               <span>Antal dagar</span>
-              <strong>5</strong>
+              <strong>{days}</strong>
             </div>
 
             <div>
               <span>Totalt pris</span>
-              <strong>3 500 kr</strong>
+              <strong>{totalPrice.toLocaleString("sv-SE")} kr</strong>
             </div>
           </div>
         </div>
