@@ -1,21 +1,32 @@
+import { useLocation, useNavigate } from "react-router-dom";
 import "../style/BookingConfirmation.css";
+import type { Car } from "../types/bookingTypes";
 
-type BookingConfirmationProps = {
+type ConfirmationState = {
+  car: Car;
   email: string;
   startDate: string;
   endDate: string;
   days: number;
   totalPrice: number;
-};
+}
 
-export default function BookingConfirmation({
-  email = "namn@exempel.se",
-  startDate = "10 september 2026",
-  endDate = "15 september 2026",
-  days = 5,
-  totalPrice = 3500,
-}: Partial<BookingConfirmationProps>) {
+
+export default function BookingConfirmation {
+  const location = useLocation();
+  const naviage = useNavigate();
+
+  const {
+    car,
+    email,
+    startDate,
+    endDate,
+    days,
+    totalPrice,
+  } = location.state as ConfirmationState;
+
   
+
   return (
     <main className="confirmation-page">
       <div className="confirmation-icon">
