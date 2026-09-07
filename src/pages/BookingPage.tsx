@@ -40,7 +40,6 @@ export default function BookingPage() {
       alert("Fyll i din e-postadress");
       return;
     }
-  }
 
   navigate("/booking-confirmation",{
     state:{
@@ -52,6 +51,9 @@ export default function BookingPage() {
       totalPrice,
     },
   })
+  }
+
+
   }
 
   return (
@@ -69,8 +71,8 @@ export default function BookingPage() {
         <div className="booking-summary">
           <div className="car-summary">
             <img
-              src="https://images.unsplash.com/photo-1563720223185-11003d516935"
-              alt="Volvo XC40"
+              src={car.image}
+              alt={`${car.brand} ${car.model}`}
               className="car-image"
             />
 
@@ -128,7 +130,9 @@ export default function BookingPage() {
             </p>
           </div>
 
-          <button className="confirm-button">
+          <button className="confirm-button"
+          onClick={handleBooking}
+          >
             Bekräfta bokning
           </button>
         </div>
