@@ -1,8 +1,17 @@
 import { useState } from "react";
 import "../style/Booking.css";
 
+import type { Car } from "../types/bookingTypes";
+
+type BookingPageState = {
+  car: Car;
+  startDate: string;
+  endDate: string;
+}
+
 export default function BookingPage() {
   const [email, setEmail] = useState("");
+
 
   return (
     <main className="booking-page">
