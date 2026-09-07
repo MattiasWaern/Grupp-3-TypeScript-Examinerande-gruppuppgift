@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {useLocation, useNavigate} from "react-router-dom"
 import "../style/Booking.css";
 
 import type { Car } from "../types/bookingTypes";
@@ -12,6 +13,19 @@ type BookingPageState = {
 export default function BookingPage() {
   const [email, setEmail] = useState("");
 
+  const { car, startDate, endDate} = location.state as BookingPageState;
+
+  const calculateDays = () => {
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+
+    const difference = end.getTime() - start.getTime();
+
+    return Math.ceil(difference / (1000 * 60 * 60 * 24));
+  };
+
+  const days = calculateDays();
+  const totalPrice = days * car.pricePerDay;
 
   return (
     <main className="booking-page">
