@@ -16,6 +16,21 @@ export default function BookingConfirmation (){
   const location = useLocation();
   const navigate = useNavigate();
 
+  const confirmationState =
+    location.state as ConfirmationState | null;
+
+  if (!confirmationState) {
+    return (
+      <main>
+        <h1>Ingen bokning hittades</h1>
+
+        <button onClick={() => navigate("/")}>
+          Till startsidan
+        </button>
+      </main>
+    );
+  }
+
   const {
     car,
     email,
@@ -23,7 +38,7 @@ export default function BookingConfirmation (){
     endDate,
     days,
     totalPrice,
-  } = location.state as ConfirmationState;
+  } = confirmationState;
 
    const formatDate = (date: string) => {
     return new Date(date).toLocaleDateString("sv-SE", {

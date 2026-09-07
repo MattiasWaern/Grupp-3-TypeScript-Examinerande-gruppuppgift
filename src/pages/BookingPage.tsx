@@ -16,7 +16,21 @@ export default function BookingPage() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const { car, startDate, endDate } = location.state as BookingPageState;
+  const bookingState = location.state as BookingPageState | null;
+
+  if (!bookingState) {
+    return (
+      <main>
+        <h1>Ingen bokning hittades</h1>
+
+        <button onClick={() => navigate("/")}>
+          Till startsidan
+        </button>
+      </main>
+    );
+  }
+
+const { car, startDate, endDate } = bookingState;
 
   const calculateDays = () => {
     const start = new Date(startDate);
