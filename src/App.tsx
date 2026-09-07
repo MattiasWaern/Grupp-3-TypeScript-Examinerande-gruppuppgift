@@ -1,9 +1,27 @@
+import { Routes, Route } from "react-router-dom";
+import BookingPage from "./pages/BookingPage";
+import BookingConfirmation from "./pages/BookingConfirmation";
 import Home from "./pages/Home";
-// import BookingPage from './pages/BookingPage'
-// import BookingConfirmation from './pages/BookingConfirmation.tsx'
 
 function App() {
-  return < Home />;
+  return (
+    <Routes>
+      <Route
+        path="/"
+        element={<Home />}
+      />
+
+      <Route
+        path="/booking"
+        element={<BookingPage />}
+      />
+
+      <Route
+        path="/booking-confirmation"
+        element={<BookingConfirmation />}
+      />
+    </Routes>
+  );
 }
 
 export default App;
