@@ -1,6 +1,6 @@
 import type { Car } from "../types/bookingTypes";
 import CarCard from "./CarCard";
-import "./CarList.css";
+import "../style/CarList.css";
 
 type CarListProps = {
   cars: Car[];
