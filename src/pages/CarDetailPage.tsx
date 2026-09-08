@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 import {
   FaUsers,
   FaGear,
@@ -15,18 +16,25 @@ import Footer from "../Components/Footer";
 import "../style/CarDetailPage.css";
 
 function CarDetailPage() {
+  const { id } = useParams();
+
   const [car, setCar] = useState<Car | null>(null);
   const [error, setError] = useState("");
 
   useEffect(() => {
-    getCarById("1")
+    if (!id) {
+      setError("Bilens id saknas.");
+      return;
+    }
+
+    getCarById(id)
       .then((data) => {
         setCar(data);
       })
       .catch(() => {
         setError("Kunde inte hämta bilen.");
       });
-  }, []);
+  }, [id]);
 
   if (error) {
     return <p>{error}</p>;
