@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import CarList from "../Components/CarList";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 import { getCars } from "../api/cars";
 import type { Car } from "../types/bookingTypes";
 
@@ -17,11 +19,17 @@ function CarsPage() {
   }, []);
 
   return (
-    <main>
-      <h1>Tillgängliga bilar</h1>
+    <>
+      <Navbar />
 
-      <CarList cars={cars} />
-    </main>
+      <main>
+        <h1>Tillgängliga bilar</h1>
+
+        <CarList cars={cars} />
+      </main>
+
+      <Footer />
+    </>
   );
 }
 

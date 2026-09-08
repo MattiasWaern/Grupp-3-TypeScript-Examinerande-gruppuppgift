@@ -1,0 +1,179 @@
+.car-detail-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 40px 60px;
+}
+
+/* Tillbaka-knappen */
+
+.car-detail-back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 25px;
+  padding: 0;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  font-size: 14px;
+  color: #333;
+}
+
+.car-detail-back:hover {
+  color: #0d5db8;
+}
+
+/* Huvudlayout */
+
+.car-detail {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+/* Vänster sida */
+
+.car-detail-left {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Bilbildens ruta */
+
+.car-detail-image {
+  width: 100%;
+  height: 380px;
+  object-fit: contain;
+
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Om bilen */
+
+.car-detail-description {
+  padding: 22px;
+
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.car-detail-description h2 {
+  margin: 0 0 12px;
+  font-size: 20px;
+}
+
+.car-detail-description p {
+  margin: 0;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Informationsrutan */
+
+.car-detail-info {
+  padding: 28px;
+
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.car-detail-info h1 {
+  margin: 0 0 25px;
+  font-size: 30px;
+}
+
+/* Bilens egenskaper */
+
+.car-detail-features {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.car-detail-features p {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin: 0;
+  font-size: 15px;
+}
+
+.car-detail-features svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Pris */
+
+.car-detail-price {
+  margin: 32px 0 20px;
+  font-size: 14px;
+}
+
+.car-detail-price span {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111;
+}
+
+/* Boka-knapp */
+
+.car-detail-book-button {
+  width: 100%;
+  padding: 13px;
+
+  background-color: #0d5db8;
+  color: #ffffff;
+
+  border: none;
+  border-radius: 6px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.car-detail-book-button:hover {
+  background-color: #094b95;
+}
+
+/* Mobil */
+
+@media (max-width: 768px) {
+  .car-detail-page {
+    padding: 20px;
+  }
+
+  .car-detail {
+    grid-template-columns: 1fr;
+  }
+
+  .car-detail-image {
+    height: 260px;
+  }
+
+  .car-detail-info {
+    padding: 22px;
+  }
+
+  .car-detail-description {
+    padding: 18px;
+  }
+}
