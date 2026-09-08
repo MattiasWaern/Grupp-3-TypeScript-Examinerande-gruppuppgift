@@ -97,6 +97,63 @@ const { car, startDate, endDate } = bookingState;
   setIsSubmitting(false);
 }
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const bookingState = location.state as BookingPageState | null;
+
+  if (!bookingState) {
+    return (
+      <main>
+        <h1>Ingen bokning hittades</h1>
+
+        <button onClick={() => navigate("/")}>
+          Till startsidan
+        </button>
+      </main>
+    );
+  }
+
+const { car, startDate, endDate } = bookingState;
+
+  const calculateDays = () => {
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+
+    const difference = end.getTime() - start.getTime();
+
+    return Math.ceil(difference / (1000 * 60 * 60 * 24));
+  };
+
+  const days = calculateDays();
+  const totalPrice = days * car.pricePerDay;
+
+  const formatDate = (date: string) => {
+    return new Date(date).toLocaleDateString("sv-SE",{
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+  };
+
+  const handleBooking = () => {
+    if (!email){
+      alert("Fyll i din e-postadress");
+      return;
+    }
+
+  navigate("/booking-confirmation",{
+    state:{
+      car,
+      email,
+      startDate,
+      endDate,
+      days,
+      totalPrice,
+    },
+  })
+}
+
   return (
     <main className="booking-page">
       <button 

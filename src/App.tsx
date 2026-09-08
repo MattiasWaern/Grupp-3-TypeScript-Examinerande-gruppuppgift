@@ -1,22 +1,20 @@
-import CarCard from "../src/Components/CarCard";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import BookingPage from "./pages/BookingPage";
+import BookingConfirmation from "./pages/BookingConfirmation";
+import About from "./pages/About";
 
-const testCar = {
-  id: "1",
-  brand: "Volvo",
-  model: "XC40",
-  year: 2024,
-  pricePerDay: 699,
-  available: true,
-};
 
-function App() {
+
+export default function App() {
   return (
-    <>
-      <h1>Välkommen till våran fina app :D</h1>
-
-      <CarCard car={testCar} />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/booking" element={<BookingPage />} />
+        <Route path="/booking-confirmation" element={<BookingConfirmation />} />        
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;
