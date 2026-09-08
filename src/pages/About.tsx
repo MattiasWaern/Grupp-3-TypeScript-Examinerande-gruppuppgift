@@ -1,4 +1,4 @@
-// import style
+import "../style/About.css";
 
 export default function AboutPage() {
     return (
