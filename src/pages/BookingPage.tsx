@@ -1,204 +1,51 @@
 import { useState } from "react";
-import {useLocation, useNavigate} from "react-router-dom"
 import "../style/Booking.css";
-
-import type { Car } from "../types/bookingTypes";
-import { getBookingsByCarId, createBooking } from "../api/bookings";
-import { hasOverlap } from "..utils/bookingValidation";
-
-type BookingPageState = {
-  car: Car;
-  startDate: string;
-  endDate: string;
-}
 
 export default function BookingPage() {
   const [email, setEmail] = useState("");
-  const [error, setError] = useState<string | null>(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  const bookingState = location.state as BookingPageState | null;
-
-  if (!bookingState) {
-    return (
-      <main>
-        <h1>Ingen bokning hittades</h1>
-
-        <button onClick={() => navigate("/")}>
-          Till startsidan
-        </button>
-      </main>
-    );
-  }
-
-const { car, startDate, endDate } = bookingState;
-
-  const calculateDays = () => {
-    const start = new Date(startDate);
-    const end = new Date(endDate);
-
-    const difference = end.getTime() - start.getTime();
-
-    return Math.ceil(difference / (1000 * 60 * 60 * 24));
-  };
-
-  const days = calculateDays();
-  const totalPrice = days * car.pricePerDay;
-
-  const formatDate = (date: string) => {
-    return new Date(date).toLocaleDateString("sv-SE",{
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    });
-  };
-
-  const handleBooking = async () => {
-    if (!email) {
-      alert("Fyll i din e-postadress");
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    try {
-      const existingBookings = await getBookingsByCarId(car.id);
-
-      if (hasOverlap(existingBookings, startDate, endDate)) {
-        setError("Bilen är redan bokad under den här perioden, välj andra datum.");
-        return;
-      }
-
-      await createBooking({
-        carId: car.id,
-        customerName: "",
-        email,
-        startDate,
-        endDate,
-        status: "confirmed",
-      });
-
-      navigate("/booking-confirmation", {
-        state: {
-          car,
-          email,
-          startDate,
-          endDate,
-          days,
-          totalPrice,
-        },
-      });
-    } catch (err) {
-      setError("Något gick fel när bokningen skulle skapas, försök igen.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  const bookingState = location.state as BookingPageState | null;
-
-  if (!bookingState) {
-    return (
-      <main>
-        <h1>Ingen bokning hittades</h1>
-
-        <button onClick={() => navigate("/")}>
-          Till startsidan
-        </button>
-      </main>
-    );
-  }
-
-const { car, startDate, endDate } = bookingState;
-
-  const calculateDays = () => {
-    const start = new Date(startDate);
-    const end = new Date(endDate);
-
-    const difference = end.getTime() - start.getTime();
-
-    return Math.ceil(difference / (1000 * 60 * 60 * 24));
-  };
-
-  const days = calculateDays();
-  const totalPrice = days * car.pricePerDay;
-
-  const formatDate = (date: string) => {
-    return new Date(date).toLocaleDateString("sv-SE",{
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    });
-  };
-
-  const handleBooking = () => {
-    if (!email){
-      alert("Fyll i din e-postadress");
-      return;
-    }
-
-  navigate("/booking-confirmation",{
-    state:{
-      car,
-      email,
-      startDate,
-      endDate,
-      days,
-      totalPrice,
-    },
-  })
-}
 
   return (
     <main className="booking-page">
-      <button 
-      className="back-button"
-      onClick={() => navigate(-1)}
-      >
+      <button className="back-button">
         Tillbaka till resultat
       </button>
 
-      <h1>Boka {car.brand} {car.model}</h1>
+      <h1>Boka Volvo XC40</h1>
 
       <section className="booking-content">
         <div className="booking-summary">
           <div className="car-summary">
             <img
-              src={car.image}
-              alt={`${car.brand} ${car.model}`}
+              src="https://images.unsplash.com/photo-1563720223185-11003d516935"
+              alt="Volvo XC40"
               className="car-image"
             />
 
             <div className="car-info">
-              <h2>{car.brand} {car.model}</h2>
-              <p>{car.pricePerDay} / dag</p>
+              <h2>Volvo XC40</h2>
+              <p>700 kr / dag</p>
             </div>
           </div>
 
           <div className="booking-details">
             <div>
               <span>Startdatum</span>
-              <strong>{formatDate(startDate)}</strong>
+              <strong>10 september 2026</strong>
             </div>
 
             <div>
               <span>Slutdatum</span>
-              <strong>{formatDate(endDate)}</strong>
+              <strong>15 september 2026</strong>
             </div>
 
             <div>
               <span>Antal dagar</span>
-              <strong>{days}</strong>
+              <strong>5</strong>
             </div>
 
             <div>
               <span>Totalt pris</span>
-              <strong>{totalPrice.toLocaleString("sv-SE")} kr</strong>
+              <strong>3 500 kr</strong>
             </div>
           </div>
         </div>
@@ -228,13 +75,8 @@ const { car, startDate, endDate } = bookingState;
             </p>
           </div>
 
-          {error && <p className="error-message">{error}</p>}
-
-          <button className="confirm-button"
-          onClick={handleBooking}
-          disabled={isSubmitting}
-          >
-            {isSubmitting ? "Bokar..." : "Bekräfta bokning"}
+          <button className="confirm-button">
+            Bekräfta bokning
           </button>
         </div>
       </section>

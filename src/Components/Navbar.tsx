@@ -1,22 +1,17 @@
 import "../style/Navbar.css";
-
-
+import { Link } from "react-router";
 import { FaCar, FaEnvelope, FaUser } from "react-icons/fa";
 
 export default function Navbar() {
   return (
-
     <nav className="navbar">
-
-      <span className="navbar-logo">
+      <span className="Navbar-logo">
         <FaCar /> GoRide
       </span>
-
-
       <ul className="navbar-links">
-        <li>Hem</li>
-        <li>Mina bokningar</li>
-        <li>Om oss</li>
+        <li><Link to="/">Hem</Link></li>
+        <li><Link to="/mina-sidor">Mina bokningar</Link></li>
+        <li><Link to="/about">Om oss</Link></li>
       </ul>
       <span className="navbar-icons">
         <FaEnvelope />
