@@ -1,5 +1,5 @@
 import type { Car } from "../types/bookingTypes";
-import "./CarCard.css";
+import "../style/CarCard.css";
 import { FaUserGroup, FaGear } from "react-icons/fa6";
 
 type CarCardProps = {
