@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "../style/Contact.css";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 
 interface ContactFormData {
     name: string;
