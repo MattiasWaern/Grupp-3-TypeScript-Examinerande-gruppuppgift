@@ -1,5 +1,5 @@
 import { useState } from "react";
-//import style
+import "../style/Contact.css";
 
 interface ContactFormData {
     name: string;
@@ -27,17 +27,17 @@ export default function ContactPage() {
     }
 
     return (
-        <main>
+        <main className="contact-page">
             <h1>Kontakta oss</h1>
-            <form onSubmit={handleSubmit}>
+            <form className="contact-form" onSubmit={handleSubmit}>
                 <label htmlFor="name">Namn</label>
-                <input name="name" value={formData.name} onChange={handleChange} />
+                <input id="name" name="name" value={formData.name} onChange={handleChange} />
 
                 <label htmlFor="email">E-post</label>
-                <input name="email" value={formData.email} onChange={handleChange} />
+                <input id="email" name="email" value={formData.email} onChange={handleChange} />
 
                 <label htmlFor="message">Meddelande</label>
-                <input name="message" value={formData.message} onChange={handleChange} />
+                <textarea id="message" name="message" value={formData.message} onChange={handleChange} />
 
                 <button type="submit">Skicka</button>
             </form>

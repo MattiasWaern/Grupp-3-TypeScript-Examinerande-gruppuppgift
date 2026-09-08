@@ -1,0 +1,56 @@
+.contact-page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+  }
+  
+  .contact-page h1 {
+    font-size: 28px;
+    margin-bottom: 25px;
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .contact-form label {
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    padding: 14px;
+    border: 1px solid #bfc6cf;
+    border-radius: 6px;
+    font-size: 15px;
+    margin-bottom: 20px;
+    font-family: inherit;
+  }
+  
+  .contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+  
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: #1a1a1a;
+  }
+  
+  .contact-form button {
+    padding: 15px;
+    border: none;
+    border-radius: 6px;
+    background-color: #9a9a9a;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .contact-form button:hover {
+    background-color: #7d7d7d;
+  }
