@@ -55,8 +55,8 @@ const { car, startDate, endDate } = bookingState;
     });
   };
 
-  const handleBooking = () => {
-    if (!email){
+  const handleBooking = async () => {
+    if (!email) {
       alert("Fyll i din e-postadress");
       return;
     }
@@ -78,24 +78,24 @@ const { car, startDate, endDate } = bookingState;
         startDate,
         endDate,
         status: "confirmed",
-      })
-    }
+      });
 
-  navigate("/booking-confirmation", {
-    state: {
-      car,
-      email,
-      startDate,
-      endDate,
-      days,
-      totalPrice,
-    },
-  })
-} catch (err) {
-  setError("Något gick fel när bokningen skulle skapas, försök igen.");
-} finally {
-  setIsSubmitting(false);
-}
+      navigate("/booking-confirmation", {
+        state: {
+          car,
+          email,
+          startDate,
+          endDate,
+          days,
+          totalPrice,
+        },
+      });
+    } catch (err) {
+      setError("Något gick fel när bokningen skulle skapas, försök igen.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const location = useLocation();
   const navigate = useNavigate();
