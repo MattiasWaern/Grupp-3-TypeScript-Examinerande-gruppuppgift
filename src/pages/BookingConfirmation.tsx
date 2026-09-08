@@ -1,20 +1,53 @@
+import { useLocation, useNavigate } from "react-router-dom";
 import "../style/BookingConfirmation.css";
+import type { Car } from "../types/bookingTypes";
 
-type BookingConfirmationProps = {
+type ConfirmationState = {
+  car: Car;
   email: string;
   startDate: string;
   endDate: string;
   days: number;
   totalPrice: number;
-};
+}
 
-export default function BookingConfirmation({
-  email = "namn@exempel.se",
-  startDate = "10 september 2026",
-  endDate = "15 september 2026",
-  days = 5,
-  totalPrice = 3500,
-}: Partial<BookingConfirmationProps>) {
+
+export default function BookingConfirmation (){
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const confirmationState =
+    location.state as ConfirmationState | null;
+
+  if (!confirmationState) {
+    return (
+      <main>
+        <h1>Ingen bokning hittades</h1>
+
+        <button onClick={() => navigate("/")}>
+          Till startsidan
+        </button>
+      </main>
+    );
+  }
+
+  const {
+    car,
+    email,
+    startDate,
+    endDate,
+    days,
+    totalPrice,
+  } = confirmationState;
+
+   const formatDate = (date: string) => {
+    return new Date(date).toLocaleDateString("sv-SE", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+  }; 
+
   return (
     <main className="confirmation-page">
       <div className="confirmation-icon">
@@ -31,20 +64,20 @@ export default function BookingConfirmation({
 
       <div className="confirmation-summary">
         <img
-          src="https://images.unsplash.com/photo-1563720223185-11003d516935"
-          alt="Volvo XC40"
+          src={car.image}
+          alt={`${car.brand} ${car.model}`}
           className="confirmation-car-image"
         />
 
         <div className="confirmation-details">
           <div>
             <span>Startdatum</span>
-            <strong>{startDate}</strong>
+            <strong>{formatDate(startDate)}</strong>
           </div>
 
           <div>
             <span>Slutdatum</span>
-            <strong>{endDate}</strong>
+            <strong>{formatDate(endDate)}</strong>
           </div>
 
           <div>
@@ -60,8 +93,15 @@ export default function BookingConfirmation({
       </div>
 
       <div className="confirmation-actions">
-        <button className="btn-outline">Till startsidan</button>
-        <button className="btn-filled">Mina bokningar</button>
+        <button className="btn-outline"
+        onClick={() => navigate("/")}
+        >
+        Till startsidan</button>
+
+        <button className="btn-filled"
+        onClick={() => navigate("/bookings")}
+        >
+        Mina bokningar</button>
       </div>
     </main>
   );
