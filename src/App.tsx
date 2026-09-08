@@ -7,14 +7,14 @@ import About from "./pages/About";
 
 
 export default function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/booking" element={<BookingPage />} />
-        <Route path="/booking-confirmation" element={<BookingConfirmation />} />        
-        <Route path="/about" element={<About />} />
-      </Routes>
-    </BrowserRouter>
-  );
+return (
+<BrowserRouter>
+<Routes>
+<Route path="/" element={<Home />} />
+<Route path="/booking" element={<BookingPage />} />
+<Route path="/booking-confirmation" element={<BookingConfirmation />} />
+<Route path="/about" element={<About />} />
+</Routes>
+</BrowserRouter>
+);
 }
