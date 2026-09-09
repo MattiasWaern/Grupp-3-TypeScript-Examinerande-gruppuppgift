@@ -14,7 +14,7 @@ export const testCars: Car[] = [
     transmission: "Automat",
     fuelType: "Bensin",
     airConditioning: true,
-    luggageCapacity: 460,
+    luggageCapacity: "460",
   },
   {
     id: "2",
@@ -29,7 +29,7 @@ export const testCars: Car[] = [
     transmission: "Automat",
     fuelType: "Bensin",
     airConditioning: true,
-    luggageCapacity: 480,
+    luggageCapacity: "480",
   },
   {
     id: "3",
@@ -44,7 +44,7 @@ export const testCars: Car[] = [
     transmission: "Automat",
     fuelType: "Bensin",
     airConditioning: true,
-    luggageCapacity: 361,
+    luggageCapacity: "361",
   },
   {
     id: "4",
@@ -59,7 +59,7 @@ export const testCars: Car[] = [
     transmission: "Automat",
     fuelType: "Diesel",
     airConditioning: true,
-    luggageCapacity: 600,
+    luggageCapacity: "600",
   },
   {
     id: "5",
@@ -74,6 +74,6 @@ export const testCars: Car[] = [
     transmission: "Automat",
     fuelType: "Diesel",
     airConditioning: true,
-    luggageCapacity: 530,
+    luggageCapacity: "530",
   },
 ];
