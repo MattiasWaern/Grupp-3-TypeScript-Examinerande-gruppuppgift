@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router";
+import { formatDate } from "../utils/formatDate";
 import "../style/Booking.css";
 
 import type { Car } from "../types/bookingTypes";
@@ -46,14 +47,6 @@ export default function BookingPage() {
 
   const days = calculateDays();
   const totalPrice = days * car.pricePerDay;
-
-  const formatDate = (date: string) => {
-    return new Date(date).toLocaleDateString("sv-SE", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    });
-  };
 
   const handleBooking = async () => {
     if (!email) {
