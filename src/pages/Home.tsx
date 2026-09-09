@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import "../style/Home.css";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
@@ -8,10 +8,22 @@ export default function Home() {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const navigate = useNavigate();
-
-  const handleSearch = (e: React.FormEvent) => {
+  const [error, setError] = useState("");
+    const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    navigate(`/booking?start=${startDate}&end=${endDate}`);
+
+    if (!startDate || !endDate) {
+      setError("Du måste välja både startdatum och slutdatum.");
+      return;
+    }
+
+    if (endDate < startDate) {
+      setError("Slutdatum kan inte vara före startdatum.");
+      return;
+    }
+
+    setError("");
+    navigate(`/cars?start=${startDate}&end=${endDate}`);
   };
 
   return (
@@ -44,6 +56,7 @@ export default function Home() {
                   className="search-input"
                 />
               </label>
+                            {error && <p className="error-message">{error}</p>}
               <button type="submit" className="search-button">
                 Sök lediga bilar
               </button>
