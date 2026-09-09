@@ -27,3 +27,8 @@ export interface Booking {
 }
 
 export type NewBooking = Omit<Booking, "id">;
+
+export type BookingDates = {
+  startDate: string;
+  endDate: string;
+};

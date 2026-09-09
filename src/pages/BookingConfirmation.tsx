@@ -1,15 +1,14 @@
 import { useLocation, useNavigate } from "react-router";
 import "../style/BookingConfirmation.css";
-import type { Car } from "../types/bookingTypes";
+import type { BookingDates, Car } from "../types/bookingTypes";
+import { formatDate } from "../utils/formatDate";
 
 type ConfirmationState = {
   car: Car;
   email: string;
-  startDate: string;
-  endDate: string;
   days: number;
   totalPrice: number;
-}
+} & BookingDates;
 
 
 export default function BookingConfirmation (){
@@ -39,14 +38,6 @@ export default function BookingConfirmation (){
     days,
     totalPrice,
   } = confirmationState;
-
-   const formatDate = (date: string) => {
-    return new Date(date).toLocaleDateString("sv-SE", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    });
-  }; 
 
   return (
     <main className="confirmation-page">
