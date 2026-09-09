@@ -29,6 +29,8 @@ export default function ContactPage() {
     }
 
     return (
+        <>
+        <Navbar />
         <main className="contact-page">
             <h1>Kontakta oss</h1>
             <form className="contact-form" onSubmit={handleSubmit}>
@@ -44,5 +46,7 @@ export default function ContactPage() {
                 <button type="submit">Skicka</button>
             </form>
         </main>
+        <Footer />
+        </>
     )
 }

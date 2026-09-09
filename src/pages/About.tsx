@@ -4,6 +4,8 @@ import Footer from "../Components/Footer";
 
 export default function AboutPage() {
     return (
+        <>
+        <Navbar />
         <main className="about-page">
             <h1>Om oss</h1>
             <p>
@@ -26,5 +28,7 @@ export default function AboutPage() {
                 </div>
             </section>
         </main>
+        <Footer />
+        </>
     )
 }
