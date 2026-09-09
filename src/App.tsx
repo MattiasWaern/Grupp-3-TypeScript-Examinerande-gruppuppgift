@@ -1,20 +1,18 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createBrowserRouter } from "react-router";
 import Home from "./pages/Home";
+import CarsPage from "./pages/CarsPage";
+import CarDetailPage from "./pages/CarDetailPage";
 import BookingPage from "./pages/BookingPage";
 import BookingConfirmation from "./pages/BookingConfirmation";
 import About from "./pages/About";
 
+const router = createBrowserRouter([
+  { path: "/", element: <Home /> },
+  { path: "/cars", element: <CarsPage /> },
+  { path: "/cars/:id", element: <CarDetailPage /> },
+  { path: "/booking", element: <BookingPage /> },
+  { path: "/booking-confirmation", element: <BookingConfirmation /> },
+  { path: "/about", element: <About /> },
+]);
 
-
-export default function App() {
-return (
-<BrowserRouter>
-<Routes>
-<Route path="/" element={<Home />} />
-<Route path="/booking" element={<BookingPage />} />
-<Route path="/booking-confirmation" element={<BookingConfirmation />} />
-<Route path="/about" element={<About />} />
-</Routes>
-</BrowserRouter>
-);
-}
+export default router;
