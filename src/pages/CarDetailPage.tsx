@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useLocation, useNavigate, useParams } from "react-router";
 import {
   FaUsers,
   FaGear,
@@ -15,11 +15,20 @@ import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import "../style/CarDetailPage.css";
 
+type CarDetailPageState = {
+  startDate: string;
+  endDate: string;
+};
+
 function CarDetailPage() {
   const { id } = useParams();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const [car, setCar] = useState<Car | null>(null);
   const [error, setError] = useState("");
+
+  const bookingDates = location.state as CarDetailPageState | null;
 
   useEffect(() => {
     if (!id) {
@@ -44,12 +53,30 @@ function CarDetailPage() {
     return <p>Laddar bil...</p>;
   }
 
+  const handleBooking = () => {
+    if (!bookingDates?.startDate || !bookingDates?.endDate) {
+      setError("Bokningsdatum saknas. Gå tillbaka och välj datum igen.");
+      return;
+    }
+
+    navigate("/booking", {
+      state: {
+        car,
+        startDate: bookingDates.startDate,
+        endDate: bookingDates.endDate,
+      },
+    });
+  };
+
   return (
     <>
       <Navbar />
 
       <main className="car-detail-page">
-        <button className="car-detail-back">
+        <button
+          className="car-detail-back"
+          onClick={() => navigate(-1)}
+        >
           <FaArrowLeft />
           Tillbaka till resultat
         </button>
@@ -104,7 +131,10 @@ function CarDetailPage() {
               <span>{car.pricePerDay} kr</span> / dag
             </p>
 
-            <button className="car-detail-book-button">
+            <button
+              className="car-detail-book-button"
+              onClick={handleBooking}
+            >
               Gå vidare och boka
             </button>
           </div>
@@ -117,3 +147,4 @@ function CarDetailPage() {
 }
 
 export default CarDetailPage;
+
