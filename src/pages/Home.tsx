@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../style/Home.css";
-import Navbar from "../Components/Navbar";
-import Footer from "../Components/Footer";
+
 
 export default function Home() {
   const [startDate, setStartDate] = useState("");
@@ -16,7 +15,7 @@ export default function Home() {
 
   return (
     <>
-      <Navbar />
+      
       <main className="hero">
         <div className="hero-content">
           <div className="hero-text">
@@ -51,7 +50,7 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <Footer />
+     
     </>
   );
 }
