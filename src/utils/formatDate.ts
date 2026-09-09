@@ -1,5 +1,5 @@
-const formatDate = (date: string) => {
-    return new Date(date).toLocaleDateString("sv-SE", {
+export function formatDate(date: string): string {
+     return new Date(date).toLocaleDateString("sv-SE", {
         day: "numeric",
         month: "long",
         year: "numeric"
