@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router";
 import CarList from "../Components/CarList";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
@@ -7,6 +8,10 @@ import type { Car } from "../types/bookingTypes";
 
 function CarsPage() {
   const [cars, setCars] = useState<Car[]>([]);
+  const [searchParams] = useSearchParams();
+
+  const startDate = searchParams.get("start") || "";
+  const endDate = searchParams.get("end") || "";
 
   useEffect(() => {
     getCars()
@@ -25,7 +30,11 @@ function CarsPage() {
       <main>
         <h1>Tillgängliga bilar</h1>
 
-        <CarList cars={cars} />
+        <CarList
+          cars={cars}
+          startDate={startDate}
+          endDate={endDate}
+        />
       </main>
 
       <Footer />
@@ -34,3 +43,4 @@ function CarsPage() {
 }
 
 export default CarsPage;
+
