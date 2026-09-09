@@ -3,15 +3,13 @@ import { useLocation, useNavigate } from "react-router";
 import { formatDate } from "../utils/formatDate";
 import "../style/Booking.css";
 
-import type { Car } from "../types/bookingTypes";
+import type { Car, BookingDates } from "../types/bookingTypes";
 import { getBookingsByCarId, createBooking } from "../api/bookings";
 import { hasOverlap } from "../utils/bookingValidation";
 
 type BookingPageState = {
   car: Car;
-  startDate: string;
-  endDate: string;
-};
+} & BookingDates;
 
 export default function BookingPage() {
   const [email, setEmail] = useState("");
