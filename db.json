@@ -139,15 +139,6 @@
       "endDate": "2026-09-11",
       "status": "confirmed",
       "id": "Kv0N0-NlpPI"
-    },
-    {
-      "carId": "1",
-      "customerName": "",
-      "email": "test2@test.com",
-      "startDate": "2026-09-10",
-      "endDate": "2026-09-11",
-      "status": "confirmed",
-      "id": "C21l7Kv-JNk"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
