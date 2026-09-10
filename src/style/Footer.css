@@ -73,6 +73,16 @@
   color: #777;
 }
 
+.footer-section a {
+  color: #666;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-section a:hover {
+  color: #0d5db8;
+}
+
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;

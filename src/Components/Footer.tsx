@@ -1,4 +1,5 @@
 import { FaCar, FaEnvelope, FaPhone } from "react-icons/fa";
+import { Link } from "react-router";
 import "../style/Footer.css";
 
 export default function Footer() {
@@ -19,10 +20,10 @@ export default function Footer() {
         <div className="footer-section">
           <h3>Snabblänkar</h3>
           <ul>
-            <li>Hem</li>
-            <li>Våra bilar</li>
-            <li>Mina bokningar</li>
-            <li>Om oss</li>
+            <li><Link to="/">Hem</Link></li>
+            <li><Link to="/bookings">Mina bokningar</Link></li>
+            <li><Link to="/about">Om oss</Link></li>
+            <li><Link to="/contact">Kontakt</Link></li>
           </ul>
         </div>
 
