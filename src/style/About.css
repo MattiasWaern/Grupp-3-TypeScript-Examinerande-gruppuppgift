@@ -1,0 +1,49 @@
+.about-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+}
+  
+.about-page h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+  
+.about-page > p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #1a1a1a;
+    margin-bottom: 40px;
+    max-width: 640px;
+}
+  
+.about-values {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+  
+.value-card {
+    background-color: #9a9a9a;
+    border-radius: 10px;
+    padding: 24px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+  
+.value-card h2 {
+    font-size: 17px;
+    margin: 0 0 10px;
+}
+  
+.value-card p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+    color: #1a1a1a;
+}
+  
+@media (max-width: 768px) {
+    .about-values {
+      grid-template-columns: 1fr;
+    }
+}
