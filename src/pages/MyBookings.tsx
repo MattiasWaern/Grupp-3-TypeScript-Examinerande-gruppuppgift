@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { getBookingsByEmail, cancelBooking } from "../api/bookings";
 import type { Booking } from "../types/bookingTypes";
+import { formatDate } from "../utils/formatDate";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 
 export default function MinaSidor() {
   const [email, setEmail] = useState("");
@@ -44,15 +47,9 @@ export default function MinaSidor() {
     }
   };
 
-  const formatDate = (date: string) => {
-    return new Date(date).toLocaleDateString("sv-SE", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    });
-  };
-
   return (
+  <>
+ <Navbar/>
     <main>
       <h1>Mina sidor</h1>
 
@@ -108,5 +105,7 @@ export default function MinaSidor() {
         </ul>
       )}
     </main>
+    <Footer/>
+ </>
   );
 }
