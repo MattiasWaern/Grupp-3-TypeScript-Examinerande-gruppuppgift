@@ -1,6 +1,7 @@
 import type { Car } from "../types/bookingTypes";
 import CarCard from "./CarCard";
 import "../style/CarList.css";
+import GenericList from "./GenericsList";
 
 type CarListProps = {
   cars: Car[];
@@ -10,18 +11,17 @@ type CarListProps = {
 
 function CarList({ cars, startDate, endDate }: CarListProps) {
   return (
-    <div className="car-list">
-      {cars.map((car) => (
+    <GenericList
+      items={cars}
+      renderItem={(car) => (
         <CarCard
-          key={car.id}
           car={car}
           startDate={startDate}
           endDate={endDate}
         />
-      ))}
-    </div>
+      )}
+    />
   );
 }
 
 export default CarList;
-
