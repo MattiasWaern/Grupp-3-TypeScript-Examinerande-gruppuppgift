@@ -4,6 +4,7 @@ import type { Booking } from "../types/bookingTypes";
 import { formatDate } from "../utils/formatDate";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
+import "../style/MyBookings.css";
 
 export default function MinaSidor() {
   const [email, setEmail] = useState("");
@@ -37,9 +38,12 @@ export default function MinaSidor() {
   const handleCancel = async (id: string) => {
     try {
       await cancelBooking(id);
+
       setBookings((prev) =>
         prev.map((booking) =>
-          booking.id === id ? { ...booking, status: "cancelled" } : booking
+          booking.id === id
+            ? { ...booking, status: "cancelled" }
+            : booking
         )
       );
     } catch (err) {
@@ -48,64 +52,107 @@ export default function MinaSidor() {
   };
 
   return (
-  <>
- <Navbar/>
-    <main>
-      <h1>Mina sidor</h1>
+    <>
+      <Navbar />
 
-      <form onSubmit={handleSearch}>
-        <label htmlFor="email">Din e-postadress</label>
-        <input
-          id="email"
-          type="email"
-          placeholder="namn@exempel.se"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+      <main className="my-bookings">
+        <h1 className="my-bookings-title">Mina sidor</h1>
 
-        <button type="submit" disabled={isLoading}>
-          {isLoading ? "Hämtar..." : "Visa mina bokningar"}
-        </button>
-      </form>
+        <form className="my-bookings-form" onSubmit={handleSearch}>
+          <label className="my-bookings-label" htmlFor="email">
+            Din e-postadress
+          </label>
 
-      {error && <p className="error-message">{error}</p>}
+          <input
+            className="my-bookings-input"
+            id="email"
+            type="email"
+            placeholder="namn@exempel.se"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
-      {hasSearched && bookings.length === 0 && !error && (
-        <p>Inga bokningar hittades för den här e-postadressen.</p>
-      )}
+          <button
+            className="my-bookings-search-button"
+            type="submit"
+            disabled={isLoading}
+          >
+            {isLoading ? "Hämtar..." : "Visa mina bokningar"}
+          </button>
+        </form>
 
-      {bookings.length > 0 && (
-        <ul className="bookings-list">
-          {bookings.map((booking) => (
-            <li key={booking.id} className="booking-item">
-              <div>
-                <span>Startdatum</span>
-                <strong>{formatDate(booking.startDate)}</strong>
-              </div>
+        {error && (
+          <p className="my-bookings-error">
+            {error}
+          </p>
+        )}
 
-              <div>
-                <span>Slutdatum</span>
-                <strong>{formatDate(booking.endDate)}</strong>
-              </div>
+        {hasSearched && bookings.length === 0 && !error && (
+          <p className="my-bookings-empty">
+            Inga bokningar hittades för den här e-postadressen.
+          </p>
+        )}
 
-              <div>
-                <span>Status</span>
-                <strong>
-                  {booking.status === "confirmed" ? "Bekräftad" : "Avbokad"}
-                </strong>
-              </div>
+        {bookings.length > 0 && (
+          <ul className="my-bookings-list">
+            {bookings.map((booking) => (
+              <li
+                key={booking.id}
+                className="my-bookings-item"
+              >
+                <div className="my-bookings-info">
+                  <span className="my-bookings-label">
+                    Startdatum
+                  </span>
 
-              {booking.status === "confirmed" && (
-                <button onClick={() => handleCancel(booking.id)}>
-                  Avboka
-                </button>
-              )}
-            </li>
-          ))}
-        </ul>
-      )}
-    </main>
-    <Footer/>
- </>
+                  <strong className="my-bookings__value">
+                    {formatDate(booking.startDate)}
+                  </strong>
+                </div>
+
+                <div className="my-bookings-info">
+                  <span className="my-bookings-label">
+                    Slutdatum
+                  </span>
+
+                  <strong className="my-bookings-value">
+                    {formatDate(booking.endDate)}
+                  </strong>
+                </div>
+
+                <div className="my-bookings-info">
+                  <span className="my-bookings-label">
+                    Status
+                  </span>
+
+                  <strong
+                    className={`my-bookings-status ${
+                      booking.status === "confirmed"
+                        ? "my-bookings-status-confirmed"
+                        : "my-bookings-status-cancelled"
+                    }`}
+                  >
+                    {booking.status === "confirmed"
+                      ? "Bekräftad"
+                      : "Avbokad"}
+                  </strong>
+                </div>
+
+                {booking.status === "confirmed" && (
+                  <button
+                    className="my-bookings-cancel-button"
+                    onClick={() => handleCancel(booking.id)}
+                  >
+                    Avboka
+                  </button>
+                )}
+              </li>
+            ))}
+          </ul>
+        )}
+      </main>
+
+      <Footer />
+    </>
   );
 }
