@@ -43,7 +43,7 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <p>© 2026 NordDrive. Alla rättigheter förbehållna.</p>
+        <p>© 2026 GoRide. Alla rättigheter förbehållna.</p>
       </div>
     </footer>
   );
