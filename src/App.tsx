@@ -6,7 +6,7 @@ import BookingPage from "./pages/BookingPage";
 import BookingConfirmation from "./pages/BookingConfirmation";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import MyBookings from "./pages/MyBookings";
+import MyBookings from "./pages/Bookings";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
