@@ -5,6 +5,7 @@ import CarDetailPage from "./pages/CarDetailPage";
 import BookingPage from "./pages/BookingPage";
 import BookingConfirmation from "./pages/BookingConfirmation";
 import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
   { path: "/booking", element: <BookingPage /> },
   { path: "/booking-confirmation", element: <BookingConfirmation /> },
   { path: "/about", element: <About /> },
+  { path: "/contact", element: <Contact /> },
 ]);
 
 export default router;

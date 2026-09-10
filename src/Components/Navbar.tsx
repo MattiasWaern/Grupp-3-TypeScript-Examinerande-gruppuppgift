@@ -1,6 +1,5 @@
 import "../style/Navbar.css";
-
-
+import { Link } from "react-router";
 import { FaCar, FaEnvelope, FaUser } from "react-icons/fa";
 
 export default function Navbar() {
@@ -14,9 +13,10 @@ export default function Navbar() {
 
 
       <ul className="navbar-links">
-        <li>Hem</li>
+        <li><Link to="/">Hem</Link></li>
         <li>Mina bokningar</li>
-        <li>Om oss</li>
+        <li><Link to="/about">Om oss</Link></li>
+        <li><Link to="/contact">Kontakt</Link></li>
       </ul>
       <span className="navbar-icons">
         <FaEnvelope />
