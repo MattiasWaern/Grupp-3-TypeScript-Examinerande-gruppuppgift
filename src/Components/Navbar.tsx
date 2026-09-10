@@ -14,7 +14,7 @@ export default function Navbar() {
 
       <ul className="navbar-links">
         <li><Link to="/">Hem</Link></li>
-        <li>Mina bokningar</li>
+        <li><Link to="/bookings">Mina bokningar</Link></li>
         <li><Link to="/about">Om oss</Link></li>
         <li><Link to="/contact">Kontakt</Link></li>
       </ul>

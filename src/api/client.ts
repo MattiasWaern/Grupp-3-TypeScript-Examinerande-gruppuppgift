@@ -20,3 +20,11 @@ export async function post<T>(path: string, body: unknown): Promise<T> {
     });
     return handleResponse<T>(res);
 }
+export async function patch<T>(path: string, body: unknown): Promise<T> {
+  const res = await fetch(`${BASE_URL}${path}`, {
+    method: "PATCH",
+    headers: { "Content-type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  return handleResponse<T>(res);
+}
